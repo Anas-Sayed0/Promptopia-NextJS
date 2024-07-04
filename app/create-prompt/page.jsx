@@ -7,12 +7,14 @@ import { useRouter } from "next/navigation";
 import Form from "@components/Form";
 
 const CreatePrompt = () => {
+  const router = useRouter();
+  const { data: session } = useSession();
   const [submitting, setSubmitting] = useState(false);
   const [post, setPost] = useState({
     prompt: "",
     tag: "",
   });
-
+  console.log(post);
   const createPrompt = async (e) => {
     e.preventDefault();
     setSubmitting(true);
@@ -27,6 +29,7 @@ const CreatePrompt = () => {
       });
       if (response.ok) {
         router.push("/");
+        console.log("Prompt created successfully");
       }
     } catch (err) {
       console.error(err);
@@ -40,7 +43,7 @@ const CreatePrompt = () => {
       post={post}
       setPost={setPost}
       submitting={submitting}
-      handelSubmit={createPrompt}
+      handleSubmit={createPrompt} // Corrected prop name here
     />
   );
 };
