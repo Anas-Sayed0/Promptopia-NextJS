@@ -6,7 +6,6 @@ export const connectToDB = async () => {
   mongoose.set("strictQuery", true);
 
   if (isConnected) {
-    console.log("Already connected to DB");
     return;
   }
   try {
@@ -16,7 +15,6 @@ export const connectToDB = async () => {
       // useUnifiedTopology: true,
     });
     isConnected = true;
-    console.log("Connected to DB");
   } catch (e) {
     console.error("Failed to connect to DB", e);
   }
