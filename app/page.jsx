@@ -1,4 +1,7 @@
-import Feed from "@components/feed";
+"use client";
+
+import Feed from "@components/Feed";
+
 const Home = () => {
   return (
     <section className="w-full flex-center flex-col">
